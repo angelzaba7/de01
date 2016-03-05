@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" /> <!-- ,target-densitydpi=device-dpi -->
+       
+     <link rel="stylesheet" type="text/css" href="css/index.css" /> 
+ 
+     <title>Hello World</title>
+ <!--   <script type="text/javascript" src="js/userPerfil.js"></script>  -->   
+ 	<script>
+	
+	function load(){
+		var lstorageNombre = localStorage.getItem('1Nombre');
+			document.getElementById("pNombre").value = lstorageNombre; 
+		var lstorageApPyM = localStorage.getItem("2ApPyM");
+			document.getElementById("pApPyM").value = lstorageApPyM;
+		var lstorageEdad = localStorage.getItem("3Edad");
+			document.getElementById("pEdad").value = lstorageEdad;
+		var lstorageSexo = localStorage.getItem("4Sexo");
+			document.getElementById("pSexo").value = lstorageSexo;
+		var lstoragePeso = localStorage.getItem("5Peso");
+			document.getElementById("pPeso").value = lstoragePeso;
+		var lstorageEstatura = localStorage.getItem("6Estatura");
+			document.getElementById("pEstatura").value = lstorageEstatura;
+		var lstorageMeta = localStorage.getItem("7Meta");
+			document.getElementById("pMeta").value = lstorageMeta;
+			//document.getElementById("pMeta").selected =lstorageMeta;		
+			
+ /*Muestra valores en inputs o en otrors elementos*/			
+		// o asi tambien document.getElementById("pNombre").value = " "+lstorageNombre+" "; //
+		
+		/*Pava visualizar Sexo*/
+		//sHombre y sMujer  => checked="checked" o checked="true";
+		//document.getElementById("s"+lstorageSexo+"").checked="true";
+		//document.getElementById("sHombre").action.checked = true;
+		//document.getElementsByName("sexo").item("sHombre").checked= true ;
+		// $( "input[type='radio']" ).prop( "checked", true ).checkboxradio( "refresh" );
+	
+			//.selectedIndex	
+		} 
+
+	function perfilSubmit(){
+		//alert ("¡has hecho submit!");
+		//alert (" "+nombre+", "+appym+", "+edad+", "+sexo+" ,"+peso+", "+estatura+", "+meta+" ");
+			//localStorage.setItem("Nombre",pNombre);
+		  // o hacerlo de la siguiente forma	
+		var nombre = document.getElementById("pNombre").value;
+			localStorage.setItem("1Nombre", nombre);	 
+		var appym = document.getElementById("pApPyM").value;
+			localStorage.setItem("2ApPyM", appym);
+		var edad = document.getElementById("pEdad").value;
+			localStorage.setItem("3Edad",edad);
+		var sexo = document.getElementById("pSexo").value;
+			localStorage.setItem("4Sexo",sexo);	
+			//localStorage.setItem("Sexo", " "+pSexo+" "); 
+		var peso = document.getElementById("pPeso").value;	
+			localStorage.setItem("5Peso",peso);
+		var estatura = document.getElementById("pEstatura").value;
+			localStorage.setItem("6Estatura",estatura);
+		var meta = document.getElementById("pMeta").value;
+			localStorage.setItem("7Meta",meta); 
+	
+		console.log (localData); //alert (localData);
+			//window.location="index.html" ó window.location.reload(true);
+		}
+		
+	function borrarLocalStorage(){
+		localStorage.removeItem('1Nombre');
+		localStorage.removeItem('2ApPyM');
+		localStorage.removeItem('3Edad');
+		localStorage.removeItem('4Sexo');
+		localStorage.removeItem('5Peso');
+		localStorage.removeItem('6Estatura');
+		localStorage.removeItem('7Meta');
+		}
+	
+	</script>       
+        
+    </head>
+    <body onLoad="load()">
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        <!-- CODIGO AGREGADO DEL ORIGINAL -->
+        <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> 
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+  <!-- De: themeroller.jquerymobile.com -->
+        <link rel="stylesheet" type="text/css" href="css/themes/verdeazulgris.min.css" />
+  		<link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css" />
+
+	<style>
+    html, body { padding: 0; margin: 0; }
+    html, .ui-mobile, .ui-mobile body {
+      height: 85px;
+    }
+    .ui-mobile, .ui-mobile .ui-page {
+      min-height: 85px;
+    }
+    .ui-content{
+      padding:10px 15px 0px 15px;
+    }
+    .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+    .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+	#ajustes:after { background-image:  url(img/menuInf/fAjustes.png); background-size: 14px 14px; }
+	#estadisticas:after { background-image:  url(img/menuInf/fEstadisticas.png);  background-size: 14px 14px; }
+    #bloques:after { background-image:  url(img/menuInf/fBloques.png); background-size: 14px 10px;  }
+	#ciclos:after { background-image:  url(img/menuInf/fCiclos.png) ;  background-size: 16px 16px; }
+	#rutinas:after { background-image:  url(img/menuInf/fRutinas.png);  background-size: 14px 14px; } 
+    #login:after { background-image:  url(http://api.jquerymobile.com/resources/navbar/glyphish-icons/30-key.png);  background-size: 12px 26px; }
+	/*iconos de cuerpo */ /* para colocar signo de sexo */
+	#espalda:after { background-image:  url(img/eEspalda.png);  background-size: 15px 15px; } 
+  </style>     
+      
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA PERFIL inicia -->
+<div data-role="page"  id="perfil" data-theme="a">  <!-- style="max-height:90px; min-height:90px;" -->
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-position="fixed" data-theme="a"> <!-- data-position="fixed o inline"  role="banner"-->
+ 		<h1>Ajustes</h1>
+      <!-- 
+      <div data-role="navbar">
+        <ul>
+          <li> <a class="ui-btn-active">Perfil</a></li>
+          <li> <a href="#dieta">Dieta</a></li>
+        </ul>
+      </div> 
+      -->
+
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="main" class="ui-content" data-theme="a"> <!--  data-role="content"-->
+   
+        <form name="formularioPerfil" onSubmit="perfilSubmit();"> 
+        	<!-- <label for="text-1"> Nombre: </label> 	-->
+            Nombre: <input type="text" id="pNombre"  > <!-- value="Tu nombre" -->
+        	Apellidos: <input type="text" id="pApPyM" > <!-- value="" -->
+            Edad: <input type="number" min="18" max="99" id="pEdad" data-mini="true"> <!-- value="00" -->
+            	<!-- data-clear-btn="true" value="" name="number-4" pattern="[0-9]*"-->
+			Sexo: <input type="text" id="pSexo" >
+            <!-- pSexo -->
+			<!-- <fieldset data-role="controlgroup" data-type="horizontal">
+   				<legend>Sexo:</legend> 
+        		<input type="radio" name="sexo" value="Hombre" id="sHombre"> <!--  name="radio-choice-h-2" id="radio-choice-h-2a" -- >
+        			 										 <label for="sHombre">Hombre</label>
+        		<input type="radio" name="sexo" value="Mujer" id="sMujer"> <!--  name="radio-choice-h-2" id="radio-choice-h-2b" -- >
+        													 <label for="sMujer" >Mujer</label>
+    		</fieldset> -->
+<!--			Sexo: 
+        	<select id"selectSexo" data-role="slider" data-mini="true">
+            	<option value="Hombre" id="h">H</option>
+                <option value="Mujer" id="m">M</option>
+            </select> 	
+        -->
+        <br>
+        Peso:<input type="text" maxlength="4" size="4" id="pPeso" > <!-- value="0.00" -->
+        Altura/Estatura:<input type="text" maxlength="4" size="4" id="pEstatura" > <!-- value="0.00" -->
+       	Meta:<input type="text" id="pMeta" > 
+        <!--
+        Peso Aproximado: <input type="text-1" id="pPeso" value="Tu nombre"> <br><br>
+         <input type="text-1" id="pEstatura" value="Tu nombre" >
+        -->
+<!--         Meta Fisica: <input type="text" maxlength="30" size="30" id="pMeta" > <!-- max 13  value="0.00"-->
+         <!--   <select name="select-choice-1" id="pMeta">
+            	<option id="select1" value="meta">Meta Fisica: Elegir </option>
+				<option id="select2" value="fuerza">Meta Fisica: Fuerza</option>
+    			<option id="select3" value="musculatura">Meta Fisica: Musculatura</option>
+    			<option id="select4" value="resistencia">Meta Fisica: Resistencia</option>
+    			<option id="select5" value="deficionion">Meta Fisica: Definicion</option>
+			</select>
+            
+          -->       
+            <input type="submit" value="Guardar Datos de Perfil"> 
+            <input type="button" value="Borrar Perfil" onClick="borrarLocalStorage()" >   
+       	</form>
+        
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="c" data-theme="a">
+        <ul data-theme="a">
+          <li><a href="index.html" id="ajustes" 		rel="external"  data-icon="custom" data-transition="fade">Inicio</a></li>
+          <li><a href="de_rutinas.html"    id="rutinas" 		rel="external"	data-icon="custom" data-transition="fade">Rutinas</a></li>
+          <li><a href="de_ejercicios.html" id="estadisticas" 	rel="external"	data-icon="custom" data-transition="fade">Ejercicios</a></li>
+          <li><a 					       id="ajustes" 		rel="external"  data-icon="custom" class="ui-btn-active">Ajustes</a></li>
+          
+        </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA PERFIL termina -->        
+   	 
+    </body>
+</html>
+
+<!-- 
+Para javascript en uso de select mandar dato
+	http://stackoverflow.com/questions/1947510/get-and-set-selected-value
+para inputs que ponga funcion para evaluar si es texto o numero
+	http://stackoverflow.com/questions/469357/html-text-input-allow-only-numeric-input
+   
+-->

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html> 
+ <head>
+  <title>Hello World</title>
+  
+  <script type="text/javascript" src="cordova.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> 
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);
+	
+	function onDeviceReady(){
+		var db = window.openDatabase("Database","1.0", "BancoCodeAm", 2000000);
+		db.transaction(populateDB, errorCB, successCB);
+		}    
+	
+	function populateDB(tx){
+		tx.executeSql('Drop table if exists codeAM');
+		tx.executeSql('CREATE TABLE codeAM(id INTEGER PRIMARY KEY ASC, clubes)');
+		tx.executeSql('INSERT INTO codeAM(id, clubes) VALUES(1,"Guarani")');
+		tx.executeSql('INSERT INTO codeAM(id, clubes) VALUES(2,"Corinthia")');
+		tx.executeSql('INSERT INTO codeAM(id, clubes) VALUES(3,"Sao Pola")');
+		tx.executeSql('INSERT INTO codeAM(id, clubes) VALUES(4,"Palmeras")');
+		}	
+		
+	function errorCB(){
+			alert("erro: "+err.code);
+		}
+	function successCB(){
+		alert("succeso");
+		}	
+		
+    </script>
+  </head>
+<body >
+
+
+ 
+</body>
+</html>
+
+<!-- video: https://www.youtube.com/watch?v=kjYCMe6eHB0&list=PLJw__u5_yjBwLTBWoWwgmoAGeAK2eh9_W
+	 -->

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+       
+     <link rel="stylesheet" type="text/css" href="css/index.css" /> 
+ 
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        
+        <!-- CODIGO AGREGADO DEL ORIGINAL -->
+        <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> 
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+  <!-- De: themeroller.jquerymobile.com -->
+        <link rel="stylesheet" type="text/css" href="css/themes/verdeazulgris.min.css" />
+  		<link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css" />
+  
+  
+  
+	<style>
+    html, body { padding: 0; margin: 0; }
+    html, .ui-mobile, .ui-mobile body {
+      height: 85px;
+    }
+    .ui-mobile, .ui-mobile .ui-page {
+      min-height: 85px;
+    }
+    .ui-content{
+      padding:10px 15px 0px 15px;
+    }
+    .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+    .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+    #ajustes:after { background-image:  url(img/menuInf/fAjustes.png); background-size: 14px 14px; }
+	#estadisticas:after { background-image:  url(img/menuInf/fEstadisticas.png);  background-size: 14px 14px; }
+    #bloques:after { background-image:  url(img/menuInf/fBloques.png); background-size: 14px 10px;  }
+	#ciclos:after { background-image:  url(img/menuInf/fCiclos.png) ;  background-size: 16px 16px; }
+	#rutinas:after { background-image:  url(img/menuInf/fRutinas.png);  background-size: 14px 14px; }
+    #login:after { background-image:  url(http://api.jquerymobile.com/resources/navbar/glyphish-icons/30-key.png);  background-size: 12px 26px; }
+	/*iconos de cuerpo*/
+	#espalda:after { background-image:  url(img/eEspalda.png);  background-size: 15px 15px; } 
+	
+	/*Estilo para CUSTOM ICON*/
+	#difficulty-easy:after { background-image:  url(img/positions/difficulty-easy.png);  background-size: 15px 15px; } 
+	#difficulty-medium:after { background-image:  url(img/positions/difficulty-medium.png);  background-size: 15px 15px; } 
+	#difficulty-hard:after { background-image:  url(img/positions/difficulty-hard.png);  background-size: 15px 15px; } 
+	
+
+	
+  </style>     
+      
+        
+<!-- PAGINA 1 inicia -->
+<div data-role="page" style="max-height:90px; min-height:90px;" id="ajustes" data-theme="a">
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-position="fixed" data-theme="a"> <!-- data-position="fixed o inline"  role="banner"-->
+ 		<h1>Daily Excercise</h1>
+    
+      <div data-role="navbar">
+        <ul>
+          <li> <a href="" class="ui-btn-active">Intro</a></li>
+          <li> <a href="">Dieta</a></li>
+          <li> <a href="">Jedi</a></li>
+          <li> <a href="">Spartan</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="main" class="ui-content" data-theme="a"> <!--  data-role="content"-->
+    	ntroduccion de la meta de esta app: Resistencia (no volumen)<br>
+        Determinar el tipo de cuerpo que tienes para realizar los ejercicios<br>
+        Colocar las repeticiones y tiempos para cada deicion de cuerpo (musculo & resistencia)
+        Colocar esquema de los musculos <br>
+        
+        <div class="ui-field-contain" data-theme="a">
+        	<label for="select-custom-2"> Elegir: </label>
+            <select name="select-custom-2" id="selectR" data-mini="true" onChange="showR()"> <!-- id="select-custom-2" -->
+            	<option value="r0">Seleccionar rutina</option>
+                <option value="r1">Rutina 1</option>
+                <option value="r2">Rutina 2</option>
+                <option value="r3">Rutina 3</option>	
+            </select>
+        </div>
+        
+        <div id="imagenRn">
+        
+        </div>
+     
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d" data-theme="a">
+        <ul data-theme="a">
+          <!-- 
+          <li><a href="#ajustes" id="ajustes" data-icon="custom" class="ui-btn-active">Inicio</a></li> <!-- Ajustes-- >
+          <li><a href="de_superior.html" id="estadisticas" rel="external" data-icon="custom" data-transition="fade">Superior</a></li>           
+          <li><a href="#bloques" id="bloques" data-icon="custom" data-transition="fade">Inferior</a></li> <!-- Bloques -- >
+          <li><a href="#ciclos" id="ciclos" data-icon="custom" data-transition="fade">ABS</a></li> <!-- Ciclos -- >
+          <li><a href="#rutinas" id="rutinas" data-icon="custom" data-transition="fade">Rutinas</a></li> -->
+          
+          
+          <li><a href="index.html" 		 id="ajustes" 		rel="external"  data-icon="custom" class="ui-btn-active">Inicio</a></li>
+          <li><a href="de_superior.html" id="estadisticas" 	rel="external"	data-icon="custom" data-transition="fade">Superior</a></li>
+          <li><a href="de_inferior.html" id="bloques" 		rel="external"	data-icon="custom" data-transition="fade">Inferior</a></li>
+          <li><a href="de_abs.html" 	 id="ciclos" 		rel="external"	data-icon="custom" data-transition="fade">ABS</a></li>
+          <li><a href="de_rutinas.html"  id="rutinas" 		rel="external"	data-icon="custom" data-transition="fade">Rutinas</a></li>
+          
+          	<!-- en lapagina situada agergar solo: class="ui-btn-active"-->
+          
+        </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA 1 termina -->        
+   	
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA 2 inicia -->
+<div data-role="page" style="max-height:90px; min-height:90px;" id="estadisticas">
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="a" data-position="fixed" role="banner">
+ 		<h1>Superior</h1>
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="main" class="ui-content" > 
+       
+    	<ol data-role="listview" data-filter="true" data-icon="info">  <!-- ul-->
+            <li data-role="list-divider" data-theme="a">Espalda</li> <!-- a, b-->
+  			<li data-icon="star"><a href="#espalda-pullup">Australian Pull Ups</a></li>
+           
+            <li><a href="#espalda-pullup" id="difficulty-easy" data-icon="custom">Inverted Pull Ups</a></li>
+            <li><a href="#espalda-pullup" id="difficulty-medium" data-icon="custom">Pull Ups</a></li>
+            <li><a href="#espalda-pullup" id="difficulty-hard" data-icon="custom">Isometric Pull Ups</a></li>
+            <li><a href="#espalda-pullup">Alternate Pull Ups</a></li>
+            <li><a href="#espalda-pullup">Tuck L Pull Ups</a></li>
+            <li><a href="#espalda-pullup">L-Sit Pull Ups</a></li>
+            <li><a href="#espalda-pullup">Tuck Front Lever Pull Ups</a></li>
+            <li><a href="#espalda-pullup">Explosive Pull Ups</a></li>
+            <li><a href="#espalda-pullup">Archer Pull Ups</a></li>
+            <li><a href="#espalda-pullup">Typewriter Pull Ups</a></li>
+			<li data-role="list-divider" data-theme="b">Bicep</li>
+  			<li><a href="bicep.html">Australian Chin Ups</a></li>
+            <li><a href="bicep.html">Inverted Chin Ups</a></li>
+            <li><a href="bicep.html">Chin Ups</a></li>
+            <li><a href="bicep.html">Isometric Chin Ups</a></li>
+            <li><a href="bicep.html">Alternate Chin Ups</a></li>
+            <li><a href="bicep.html">Tuck L Chin Ups</a></li>
+            <li><a href="bicep.html">L-sit Chin Ups</a></li>
+            <li><a href="bicep.html">Tuck Front Lever Chin Ups</a></li>
+            <li><a href="bicep.html">Explosive Chin Ups</a></li>
+            <li><a href="bicep.html">Archer Chin Ups</a></li>
+            <li><a href="bicep.html">One Hand Chin Ups</a></li>
+            <li data-role="list-divider" data-theme="b">Pecho Centro</li>
+            <li><a href="pecho.html">Push Ups</a></li>
+            <li><a href="pecho.html">Spiderman Push Ups*</a></li>
+            <li><a href="pecho.html">Forearm Push Ups</a></li>
+            <li><a href="pecho.html">Typerwriter Push Ups</a></li>
+            <li><a href="pecho.html">Polymetric Push Ups</a></li>
+            <li><a href="pecho.html">Staggered Push Ups</a></li>
+            <li><a href="pecho.html">Russian Push Ups</a></li>
+            <li data-role="list-divider" data-theme="b">Pecho Superior</li>
+            <li><a href="pecho.html">Declinate Push Ups</a></li>
+            <li><a href="pecho.html">Forearm Push Ups</a></li>
+            <li><a href="pecho.html">Adjust* Typerwriter Push Ups</a></li>
+            <li><a href="pecho.html">Adjust* Archer Push Ups</a></li>
+            <li><a href="pecho.html">Adjust* Russian Push Ups</a></li>
+            <li data-role="list-divider" data-theme="b">Pecho Inferior</li>
+            <li><a href="pecho.html">Declinate Push Ups</a></li>
+            <li><a href="pecho.html">Forearm Push Ups</a></li>
+            <li><a href="pecho.html">Adjust* Typerwriter Push Ups</a></li>
+            <li><a href="pecho.html">Adjust* Archer Push Ups</a></li>
+            <li><a href="pecho.html">Adjust* Russian Push Ups</a></li>
+            <li data-role="list-divider" data-theme="b">Tricep</li>
+            <li><a href="tricep.html">Tricep extension Push Ups</a></li>
+            <li><a href="tricep.html">Pseudo Push Ups</a></li>
+            <li><a href="tricep.html">Bench Dips</a></li>
+            <li><a href="tricep.html">Parallel Dips</a></li>
+            <li><a href="tricep.html">Straight Bar Dips</a></li>
+            <li><a href="tricep.html">Elbow Dips</a></li>
+            <li><a href="tricep.html">Russian Dips</a></li>
+            <li><a href="tricep.html">Clapping Dips</a></li>
+            <li><a href="tricep.html">Ring Dips</a></li>
+            <li><a href="tricep.html">Korean Dips Sup/Pron</a></li>
+            <li><a href="tricep.html">Bulgarian Dips</a></li>
+            <li><a href="tricep.html">Archer Dips</a></li>
+  		  	<li data-role="list-divider" data-theme="b">Hombro</li>
+            <li><a href="hombro.html">Shoulder Push Ups</a></li>
+            <li><a href="hombro.html">Semi HandStand Push Ups</a></li>
+            <li><a href="hombro.html">Forearmn Push Ups</a></li>
+            <li><a href="hombro.html">Foream Inline PusUps</a></li>
+            <li><a href="hombro.html">Tricep bar xtension</a></li>
+            <li><a href="hombro.html">Handstand Push Ups</a></li>
+		</ol>
+    texto
+    
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-theme="a"> <!-- fixed-->
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+          <li><a href="#ajustes" id="ajustes" data-icon="custom" data-transition="fade" >Inicio</a></li> <!-- data-rel="back" -->
+          <li><a href="#estadisticas" id="estadisticas" data-icon="custom" class="ui-btn-active">Superior</a></li>
+          <li><a href="#bloques" id="bloques" data-icon="custom" data-transition="fade">Inferior</a></li>
+          <li><a href="#ciclos" id="ciclos" data-icon="custom" data-transition="fade">ABS</a></li>
+          <li><a href="#rutinas" id="rutinas" data-icon="custom" data-transition="fade">Rutinas</a></li>
+          
+        </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA 2 termina -->
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA 3 inicia -->
+<div data-role="page" style="max-height:90px; min-height:90px;" id="bloques">
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="a" data-position="fixed" role="banner">
+ 		<h1>Inferior</h1>
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="content">  <!-- <div role="main" class="ui-content">  -->
+    	
+      <ul data-role="listview" data-filter="true" data-icon="info">
+	  	<li data-role="list-divider" data-theme="b">GLUTEO</li>	      
+  			<li><a href="#" id="difficulty-easy" data-icon="custom">Gluteo - </a></li>
+           	<li><a href="#" id="difficulty-medium" data-icon="custom">Gluteo - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Gluteo - </a></li>
+      	<li data-role="list-divider" data-theme="b">ISQUIOTIBIALES</li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Isquiotibiales- </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Isquiotibiales- </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Isquiotibiales- </a></li>
+      	<li data-role="list-divider" data-theme="b">CUADRICEPS</li> 
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Cuadriceps - </a></li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Cuadriceps - </a></li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Cuadriceps - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Cuadriceps - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Cuadriceps - </a></li>
+           	<li><a href="#" id="difficulty-hard" data-icon="custom">Cuadriceps - </a></li>     
+       	<li data-role="list-divider" data-theme="b">GEMELOS</li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Gemelos - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Gemelos - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Gemelos - </a></li>     
+		</ul>
+      
+       
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+          <li><a href="#ajustes" id="ajustes" data-icon="custom" data-transition="fade">Inicio</a></li>
+          <li><a href="#estadisticas" id="estadisticas" data-icon="custom" data-transition="fade">Superior</a></li>
+          <li><a href="#bloques" id="bloques" data-icon="custom" class="ui-btn-active">Inferior</a></li>
+          <li><a href="#ciclos" id="ciclos" data-icon="custom" data-transition="fade">ABS</a></li>
+          <li><a href="#rutinas" id="rutinas" data-icon="custom" data-transition="fade">Rutinas</a></li>
+          
+        </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA 3 termina -->
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA 4 inicia -->
+<div data-role="page" style="max-height:90px; min-height:90px;" id="ciclos">
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="a" data-position="fixed" role="banner">
+ 		<h1>ABS</h1>
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+         
+         <div role="content">  <!-- <div role="main" class="ui-content">  -->
+    	
+      <ul data-role="listview" data-filter="true" data-icon="info">
+         
+	  	<li data-role="list-divider" data-theme="b">ABS SUPERIOR</li>	      
+  			<li><a href="#" id="difficulty-easy" data-icon="custom">Superior - </a></li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Superior - </a></li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Superior - </a></li>
+           	<li><a href="#" id="difficulty-medium" data-icon="custom">Superior - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Superior - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Superior - </a></li>
+      	<li data-role="list-divider" data-theme="b">IINFERIOR</li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Inferior - </a></li>
+             <li><a href="#" id="difficulty-easy" data-icon="custom">Inferior - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Inferior - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Inferior - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Inferior - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Inferior - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Inferior - </a></li>
+      	<li data-role="list-divider" data-theme="b">LATERAL</li> 
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Lateral - </a></li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Lateral - </a></li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Lateral - </a></li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Lateral - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Lateral - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Lateral - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Lateral - </a></li>
+           	<li><a href="#" id="difficulty-hard" data-icon="custom">Lateral - </a></li> 
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Lateral - </a></li>     
+       	<li data-role="list-divider" data-theme="b">CORE</li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Core - </a></li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Core - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Core - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Core - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Core - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Core - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Core - </a></li> 
+        <li data-role="list-divider" data-theme="b">ESPALDA BAJA</li>
+            <li><a href="#" id="difficulty-easy" data-icon="custom">Espalda baja - </a></li>
+            <li><a href="#" id="difficulty-medium" data-icon="custom">Espalda baja - </a></li>
+            <li><a href="#" id="difficulty-hard" data-icon="custom">Espalda baja - </a></li>         
+		</ul>   
+    
+        
+    
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+          <li><a href="#ajustes" id="ajustes" data-icon="custom" data-transition="fade">Inicio</a></li> <!-- data-rel="back" -->
+          <li><a href="#estadisticas" id="estadisticas" data-icon="custom" data-transition="fade">Superior</a></li> <!-- data-rel="back" -->
+          <li><a href="#bloques" id="bloques" data-icon="custom"  data-transition="fade">Inferior</a></li> <!-- data-rel="back" -->
+          <li><a href="#ciclos" id="ciclos" data-icon="custom" class="ui-btn-active">ABS</a></li>
+          <li><a href="#rutinas" id="rutinas" data-icon="custom" data-transition="fade">Rutinas</a></li>
+          
+        </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA 4 termina -->
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA 5 inicia -->
+<div data-role="page" style="max-height:90px; min-height:90px;" id="rutinas">
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="e" data-position="fixed">
+ 		<h1>Rutinas </h1>
+    
+      <div data-role="navbar">
+        <ul>
+          <li> <a href="" class="ui-btn-active">Cardio</a></li>  <!-- bloques, ciclos, retos-->
+          <li> <a href="">Rutinas</a></li>
+          <li> <a href="">Retos</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+    	
+        
+    
+
+<div role="main" class="ui-content">
+    	
+        <!-- <img src="img/ejercicios/espalda/1pullUps2.png" width="90" height="140">
+        <p>Pull Ups Pronacion.png </p> -->
+        <img src="img/ejercicios/rutinas/Rutina1.png" style="width:100%; height:100%;" >
+        
+        Determinar el tipo de cuerpo que tienes para realizar los ejercicios
+        
+        <div class="ui-field-contain">
+        	<label for="select-custom-2"> Elegir: </label>
+            <select name="select-custom-2" id="selectR" data-mini="true" onChange="showR()"> <!-- id="select-custom-2" -->
+            	<option value="r0">Seleccionar rutina</option>
+                <option value="r1">Rutina 1</option>
+                <option value="r2">Rutina 2</option>
+                <option value="r3">Rutina 3</option>	
+            </select>
+        </div>
+        
+        <div id="imagenRn">
+        
+        </div>
+        	
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+          <li><a href="#ajustes" id="ajustes" data-icon="custom" data-transition="fade">Inicio</a></li> <!-- data-rel="back" -->
+          <li><a href="#estadisticas" id="estadisticas" data-icon="custom" data-transition="fade">Superior</a></li> <!-- data-rel="back" -->
+          <li><a href="#bloques" id="bloques" data-icon="custom" data-transition="fade">Inferior</a></li> <!-- data-rel="back" -->
+          <li><a href="#ciclos" id="ciclos" data-icon="custom" data-transition="fade">ABS</a></li> <!-- data-rel="back" -->
+          <li><a href="#rutinas" id="rutinas" data-icon="custom" class="ui-btn-active">Rutinas</a></li>
+          
+        </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA 5 termina -->
+
+
+<!-- PAGINAS CON IMAGENES -->
+
+<!-- PAGINA A inicia -->
+<div data-role="page" style="max-height:90px; min-height:90px;" id="espalda-pullup">
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="e" data-position="fixed">
+ 		<h1>Pull Ups</h1>
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO inicia -->
+	<div role="main" class="ui-content" > 
+    	<center><img src="img/positions/1pull-ups.jpg"></center>
+        Indicaciones: 
+  	</div>
+	<!-- CONTENIDO termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+        <div data-role="navbar">
+        	<ul> <li><a href="#estadisticas" data-icon="arrow-l" data-transition="fade" data-rel="back"></a></li> </ul>
+            <!-- <ul> <li><a href="#estadisticas" data-transition="fade" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-carat-"> Regresar</a></li> </ul> -->
+            
+
+        </div>
+      </div>
+	<!-- FOOTER termina -->            
+</div>
+<!-- PAGINA A termina -->
+ 
+    </body>
+</html>

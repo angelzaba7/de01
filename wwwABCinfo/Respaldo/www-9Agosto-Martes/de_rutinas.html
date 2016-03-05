@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+       
+     <link rel="stylesheet" type="text/css" href="css/index.css" /> 
+ 
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        
+        <!-- CODIGO AGREGADO DEL ORIGINAL -->
+        <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> 
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+  <!-- De: themeroller.jquerymobile.com -->
+        <link rel="stylesheet" type="text/css" href="css/themes/verdeazulgris.min.css" />
+  		<link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css" />
+  
+  
+  
+	<style>
+    html, body { padding: 0; margin: 0; }
+    html, .ui-mobile, .ui-mobile body {
+      height: 85px;
+    }
+    .ui-mobile, .ui-mobile .ui-page {
+      min-height: 85px;
+    }
+    .ui-content{
+      padding:10px 15px 0px 15px;
+    }
+    .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+    .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+    #ajustes:after { background-image:  url(img/menuInf/fAjustes.png); background-size: 14px 14px; }
+	#estadisticas:after { background-image:  url(img/menuInf/fEstadisticas.png);  background-size: 14px 14px; }
+    #bloques:after { background-image:  url(img/menuInf/fBloques.png); background-size: 14px 10px;  }
+	#ciclos:after { background-image:  url(img/menuInf/fCiclos.png) ;  background-size: 16px 16px; }
+	#rutinas:after { background-image:  url(img/menuInf/fRutinas.png);  background-size: 14px 14px; }
+    #login:after { background-image:  url(http://api.jquerymobile.com/resources/navbar/glyphish-icons/30-key.png);  background-size: 12px 26px; }
+	/*iconos de cuerpo*/
+	#espalda:after { background-image:  url(img/eEspalda.png);  background-size: 15px 15px; } 
+	
+	/*Estilo para CUSTOM ICON*/
+	#difficulty-easy:after { background-image:  url(img/positions/difficulty-easy.png);  background-size: 15px 15px; } 
+	#difficulty-medium:after { background-image:  url(img/positions/difficulty-medium.png);  background-size: 15px 15px; } 
+	#difficulty-hard:after { background-image:  url(img/positions/difficulty-hard.png);  background-size: 15px 15px; } 
+	
+
+  </style>     
+      
+        
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA 5 inicia -->
+<div data-role="page" id="rutinas">
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="a" data-position="fixed">
+ 		<h1>Rutinas</h1>
+    <!--
+      <div data-role="navbar">
+        <ul>
+          <li> <a class="ui-btn-active">Selcción de Rutinas</a></li>  <!-- bloques, ciclos, retos-- >
+        </ul>
+      </div> -->
+
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+    	
+        
+    
+
+<div role="main" class="ui-content">
+         <!-- <img src="img/catalogoRutinas/RutinaHombres.png" style="width:100%; height:100%;" >  -->
+        
+        <p>
+         Realiza la rutina de acuerdo a tus habilidades físicas. <br> <br>
+         <!-- <div data-role="controlgroup"> -->
+        <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">Pre-diseñadas.</a>
+        <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">Sprint (1 hora)</a>
+        <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">Largas (2 horas)</a>
+        <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">Retos* </a>
+         <!--  </div> -->
+         
+        <i> Cada rutina de SPRINT o LARGAS* permitira trabajar una ya elaboradoa o "Crear tu rutina con ejercicios aleatorios / seleccionar" </i>
+         
+        </p>
+        	
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+          <li><a href="index.html" 		 id="ajustes" 		rel="external"  data-icon="custom" data-transition="fade">Inicio</a></li>
+          <li><a href="de_superior.html" id="estadisticas" 	rel="external"	data-icon="custom" data-transition="fade">Superior</a></li>
+          <li><a href="de_inferior.html" id="bloques" 		rel="external"	data-icon="custom" data-transition="fade">Inferior</a></li>
+          <li><a href="de_abs.html" 	 id="ciclos" 		rel="external"	data-icon="custom" data-transition="fade">ABS</a></li>
+          <li><a 						  id="rutinas" 		rel="external"	data-icon="custom" class="ui-btn-active">Rutinas</a></li>          
+        </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA 5 termina -->
+
+
+<!-- PAGINAS CON IMAGENES -->
+
+<!-- PAGINA A inicia -->
+<div data-role="page" style="max-height:90px; min-height:90px;" id="espalda-pullup">
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="e" data-position="fixed">
+ 		<h1>Pull Ups</h1>
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO inicia -->
+	<div role="main" class="ui-content" > 
+    	<center><img src="img/positions/1pull-ups.jpg"></center>
+        Indicaciones: 
+  	</div>
+	<!-- CONTENIDO termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+        <div data-role="navbar">
+        	<ul> <li><a href="#estadisticas" data-icon="arrow-l" data-transition="fade" data-rel="back"></a></li> </ul>
+            <!-- <ul> <li><a href="#estadisticas" data-transition="fade" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-carat-"> Regresar</a></li> </ul> -->
+            
+
+        </div>
+      </div>
+	<!-- FOOTER termina -->            
+</div>
+<!-- PAGINA A termina -->
+ 
+    </body>
+</html>
