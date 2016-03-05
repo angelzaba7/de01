@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+       
+     <link rel="stylesheet" type="text/css" href="css/index.css" /> 
+ 
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        
+        <!-- CODIGO AGREGADO DEL ORIGINAL -->
+        <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> 
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+  <!-- De: themeroller.jquerymobile.com -->
+        <link rel="stylesheet" type="text/css" href="css/themes/verdeazulgris.min.css" />
+  		<link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css" />
+  
+  
+  
+	<style>
+    html, body { padding: 0; margin: 0; }
+    html, .ui-mobile, .ui-mobile body {
+      height: 85px;
+    }
+    .ui-mobile, .ui-mobile .ui-page {
+      min-height: 85px;
+    }
+    .ui-content{
+      padding:10px 15px 0px 15px;
+    }
+    .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+    .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+    #ajustes:after { background-image:  url(img/menuInf/fAjustes.png); background-size: 14px 14px; }
+	#estadisticas:after { background-image:  url(img/menuInf/fEstadisticas.png);  background-size: 14px 14px; }
+    #bloques:after { background-image:  url(img/menuInf/fBloques.png); background-size: 14px 10px;  }
+	#ciclos:after { background-image:  url(img/menuInf/fCiclos.png) ;  background-size: 16px 16px; }
+	#rutinas:after { background-image:  url(img/menuInf/fRutinas.png);  background-size: 14px 14px; }
+    #login:after { background-image:  url(http://api.jquerymobile.com/resources/navbar/glyphish-icons/30-key.png);  background-size: 12px 26px; }
+	/*iconos de cuerpo*/
+	#espalda:after { background-image:  url(img/eEspalda.png);  background-size: 15px 15px; } 
+	
+	/*Estilo para CUSTOM ICON*/
+	#difficulty-easy:after { background-image:  url(img/positions/difficulty-easy.png);  background-size: 15px 15px; } 
+	#difficulty-medium:after { background-image:  url(img/positions/difficulty-medium.png);  background-size: 15px 15px; } 
+	#difficulty-hard:after { background-image:  url(img/positions/difficulty-hard.png);  background-size: 15px 15px; } 
+	
+
+	
+  </style>     
+      
+        
+<!-- PAGINA INTRO inicia -->
+<div data-role="page"  id="intro" data-theme="a">  <!-- style="max-height:90px; min-height:90px;" -->
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-position="fixed" data-theme="a"> <!-- data-position="fixed o inline"  role="banner"-->
+ 		<h1>Daily Excercise</h1>
+      <!-- 
+      <div data-role="navbar">
+        <ul>
+          <li> <a class="ui-btn-active">Intro</a></li>
+        </ul>
+      </div> 
+      -->
+
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="main" class="ui-content" data-theme="a"> <!--  data-role="content"-->
+    	
+        
+        <p align="center">Fortaleza mental, <br>Resistencia física y <br> pasión en cada ejecución</p>
+        
+        <!-- <div data-role="controlgroup"> -->
+        <a href="#consejos" data-role="button" data-icon="arrow-r" data-iconpos="right">Consejos</a>
+        <!-- </div> -->
+
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="c" data-theme="a">
+        <ul data-theme="a">
+          
+          <li><a 				 		   id="ajustes" 		rel="external"  data-icon="custom" class="ui-btn-active">Inicio</a></li>
+          <li><a href="de_rutinas.html"    id="rutinas" 		rel="external"	data-icon="custom" data-transition="fade">Rutinas</a></li>
+          <li><a href="de_ejercicios.html" id="estadisticas" 	rel="external"	data-icon="custom" data-transition="fade">Ejercicios</a></li>
+          <li><a href="de_ajustes.html"    id="ajustes" 		rel="external"  data-icon="custom" data-transition="fade">Ajustes</a></li>
+          
+          <!-- 
+          <li><a href="index.html" 		 id="ajustes" 		rel="external"  data-icon="custom" class="ui-btn-active">Inicio</a></li>
+          <li><a href="de_superior.html" id="estadisticas" 	rel="external"	data-icon="custom" data-transition="fade">Superior</a></li>
+          <li><a href="de_inferior.html" id="bloques" 		rel="external"	data-icon="custom" data-transition="fade">Inferior</a></li>
+          <li><a href="de_abs.html" 	 id="ciclos" 		rel="external"	data-icon="custom" data-transition="fade">ABS</a></li>
+          <li><a href="de_rutinas.html"  id="rutinas" 		rel="external"	data-icon="custom" data-transition="fade">Rutinas</a></li>
+          -->
+          	<!-- en lapagina situada 
+            		agergar : class="ui-btn-active"
+            		quitar: href-->
+        </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA INTRO termina -->        
+   	    
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+
+
+<!-- PAGINA CONSEJOS inicia -->
+<div data-role="page"  id="consejos" data-theme="a">  <!-- style="max-height:90px; min-height:90px;" -->
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-position="fixed" data-theme="a"> <!-- data-position="fixed o inline"  role="banner"-->
+ 		<h1>Consejos</h1>
+      <!-- 
+      <div data-role="navbar">
+        <ul>
+          <li> <a class="ui-btn-active">Intro</a></li>
+        </ul>
+      </div> 
+      -->
+
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="main" class="ui-content" data-theme="a"> <!--  data-role="content"-->
+    	<p>
+        Si quieres ver resultados recuerda que la alimentación representa el 90% y el ejercicio el 10%. ** <br> 
+       
+        <!-- <div data-role="controlgroup"> -->
+        <a href="#consejos_alimentacion" data-role="button" data-icon="arrow-r" data-iconpos="right">Consejos - alimentación</a>
+        <a href="#consejos_ejercicio" data-role="button" data-icon="arrow-r" data-iconpos="right">Consejos - ejercicios</a>
+        <a href="#consejos_cuerpo" data-role="button" data-icon="arrow-r" data-iconpos="right">Consejos - cuerpo</a>
+        <!-- </div> -->        
+        
+        <!-- <div>
+        	<ul data-role="listview">
+        		<li><a href="#contenido1"> Contenedor numero 1</a></li>
+        	</ul>
+        </div> -->
+        </p>
+         
+         <div data-role="collapsible" data-inset="false">
+    <h3>Alimentación</h3>
+    <p>
+         Evita comer: grasas saturadas, refesco, azúcar, sal, condimentos, <br><br>
+         Procura 5 comidas al día (cada 4 horas). Consume alimentos que brinden energia. <br><br> 
+         Mantente hidratado. <br><br>
+         Consume quemadores naturales: piña, toronja, pepino, mostaza, chía, limón,  <br><br>
+         Aprende a comer balanceando correctamente los grupos alimenticios. <br><br> 
+         Come 90 minutos antes y después de realizar ejercicio para que el organismo pueda asimilarlos (carbohidratos y proteina).  <br><br> 
+         Recuerda que No existe la dieta perfecta, si no eres disciplinado y no cierras la boca, nunca bajarás de peso.
+         
+         <center><img src="img/index_consejos_plato_buen_comer.png" width="300" height="300"></center>
+         
+        </p>
+</div><!-- /collapsible -->
+<div data-role="collapsible" data-inset="false" data-theme="a">
+    <h3>Ejercicio</h3>
+    <p>
+        Estira y calienta antes de comenzar a ejercitarte. <br><br>
+        Realiza los ejercicio con la técnica correspondiente y de acuerdo a tus habilidades físicas, de otra manera podrías lastimarte.<br><br>
+        <img src="img/index_consejos_repeticiones.jpg" width="300" height="367">
+        </p>
+</div><!-- /collapsible -->
+<div data-role="collapsible" data-inset="false">
+    <h3>Cuerpo</h3>
+    <p>
+        Procura descansar todos los dias al menos ocho horas. <br><br>
+        Si al realizar un ejercicio sientes molestia muscualr, detente y descansa hasta que sientas que te has recuperado. <br><br>
+        Identifica el tipo de cuerpo que tienes. <br><br>
+        
+        <center>
+        	<img src="img/index_consejos_cuerpo_mujer.png" width="300" height="250">
+        	<img src="img/index_consejos_cuerpo_hombre.png" width="300" height="250">
+       	</center>
+        
+         Ectomorfo (Ectomorph): <br><br>
+         Mesomorfo (Mesomorph): <br><br>
+         Endomorfo (Endomorph): <br><br>
+        
+        </p>
+</div><!-- /collapsible -->
+         
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+        <div data-role="navbar" class="nav-glyphish-example" data-theme="a">
+        	<ul> <li><a href="#index" data-icon="back" data-iconpos="left" data-transition="fade" data-rel="back">Volver a inicio</a></li> </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA TIPS termina -->        
+   	    
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA TIPS ALIMENTACION inicia -->
+<div data-role="page"  id="consejos_alimentacion" data-theme="a">  <!-- style="max-height:90px; min-height:90px;" -->
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-position="fixed" data-theme="a"> <!-- data-position="fixed o inline"  role="banner"-->
+ 		<h1>Alimentación</h1>
+     
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="main" class="ui-content" data-theme="a"> <!--  data-role="content"-->
+    	<p>
+         Evita comer: grasas saturadas, refesco, azúcar, sal, condimentos, <br><br>
+         Procura 5 comidas al día (cada 4 horas). Consume alimentos que brinden energia. <br><br> 
+         Mantente hidratado. <br><br>
+         Consume quemadores naturales: piña, toronja, pepino, mostaza, chía, limón,  <br><br>
+         Aprende a comer balanceando correctamente los grupos alimenticios. <br><br> 
+         Come 90 minutos antes y después de realizar ejercicio para que el organismo pueda asimilarlos (carbohidratos y proteina).  <br><br> 
+         Recuerda que No existe la dieta perfecta, si no eres disciplinado y no cierras la boca, nunca bajarás de peso.
+         
+         <center><img src="img/index_consejos_plato_buen_comer.png" width="300" height="300"></center>
+         
+        </p>
+        
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+        <div data-role="navbar" class="nav-glyphish-example">
+        	<ul> <li><a href="#consejos" data-icon="back" data-iconpos="left" data-transition="fade" data-rel="back">Volver a consejos</a></li> </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA TIPS ALIMENTACION termina -->        
+   	    
+
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+
+
+<!-- PAGINA TIPS EJERCICIOS inicia -->
+<div data-role="page"  id="consejos_ejercicio" data-theme="a">  <!-- style="max-height:90px; min-height:90px;" -->
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-position="fixed" data-theme="a"> <!-- data-position="fixed o inline"  role="banner"-->
+ 		<h1>Ejercicio</h1>
+      
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="main" class="ui-content" data-theme="a"> <!--  data-role="content"-->
+    	<p>
+        Estira y calienta antes de comenzar a ejercitarte. <br><br>
+        Realiza los ejercicio con la técnica correspondiente y de acuerdo a tus habilidades físicas, de otra manera podrías lastimarte.<br><br>
+        <img src="img/index_consejos_repeticiones.jpg" width="300" height="367">
+        </p>
+        
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+        <div data-role="navbar" class="nav-glyphish-example" data-theme="a">
+        	<ul> <li><a href="#consejos" data-icon="back" data-iconpos="left" data-transition="fade" data-rel="back">Volver a consejos</a></li> </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA TIPS EJERCICIOS termina -->        
+   	    
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA TIPS CUERPO inicia -->
+<div data-role="page"  id="consejos_cuerpo" data-theme="a">  <!-- style="max-height:90px; min-height:90px;" -->
+  
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-position="fixed" data-theme="a"> <!-- data-position="fixed o inline"  role="banner"-->
+ 		<h1>cCuerpo</h1>
+      
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="main" class="ui-content" data-theme="a"> <!--  data-role="content"-->
+    	<p>
+        Procura descansar todos los dias al menos ocho horas. <br><br>
+        Si al realizar un ejercicio sientes molestia muscualr, detente y descansa hasta que sientas que te has recuperado. <br><br>
+        Identifica el tipo de cuerpo que tienes. <br><br>
+        
+        <center>
+        	<img src="img/index_consejos_cuerpo_mujer.png" width="300" height="250">
+        	<img src="img/index_consejos_cuerpo_hombre.png" width="300" height="250">
+       	</center>
+        
+         Ectomorfo (Ectomorph): <br><br>
+         Mesomorfo (Mesomorph): <br><br>
+         Endomorfo (Endomorph): <br><br>
+        
+        </p>
+        
+  	</div>
+	<!-- CONTENIDO o MAIN termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+        <div data-role="navbar" class="nav-glyphish-example" data-theme="a">
+        	<ul> <li><a href="#consejos" data-icon="back" data-iconpos="left" data-transition="fade" data-rel="back">Volver a consejos</a></li> </ul>
+        </div>
+      </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA TIPS CUERPO termina -->        
+   	    
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+
+
+
+
+<!-- * * * * * * * * * * * * * * * * -->
+
+<!-- PAGINAS CON IMAGENES -->
+
+<!-- PAGINA A inicia -->
+<div data-role="page" id="espalda-pullup"> <!-- style="max-height:90px; min-height:90px;" -->
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="e" data-position="fixed">
+ 		<h1>Pull Ups</h1>
+    </div>
+    <!-- HEADER termina-->
+  
+	<!-- CONTENIDO inicia -->
+	<div role="main" class="ui-content" > 
+    	<center><img src="img/positions/1pull-ups.jpg"></center>
+        Indicaciones: 
+  	</div>
+	<!-- CONTENIDO termina -->
+	
+    <!-- FOOTER inicia --> 
+      <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+        <div data-role="navbar">
+        	<ul> <li><a href="#estadisticas" data-icon="arrow-l" data-transition="fade" data-rel="back"></a></li> </ul>
+            <!-- <ul> <li><a href="#estadisticas" data-transition="fade" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-carat-"> Regresar</a></li> </ul> -->
+            
+
+        </div>
+      </div>
+	<!-- FOOTER termina -->            
+</div>
+<!-- PAGINA A termina -->
+ 
+    </body>
+</html>

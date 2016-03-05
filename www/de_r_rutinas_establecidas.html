@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+          
+     <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+        <title>Rutina - Establecida</title>
+        
+            <!-- Creacion de botones de ejercicios de rutina y elementos popup -->  
+		<script>
+			function mostrarListaEjercicios(){
+				var e=1;
+				var text = "";
+				var venCont = "";
+			   	while (e <= 15){
+					//text += "<br>die zahlen ist " +e;
+				text += "" +e+ "<a href=\"#popupEj"+e+"\" data-rel=\"popup\" data-transition=\"pop\"><input type=\"image\" value=\"image\" id=\"nEj"+e+"\" src=\"img/catalogoRutinas/icon_ejeproceso.png\" width=\"38\" height=\"38\"></a> ";
+//** value="enProceso" icon_E1  id="myImage5" onClick="terminado(5)
+//** "<input type=\"image\" value=\"serieEnProceso"+e+"\" src=\"img/catalogoRutinas/icon_ejeproceso.png\" width=\"38\" height=\"38\" id=\"myImage"+e+"\" onClick=\"terminado("+e+")\">  ";
+
+				// ** agergar elemetos escenciales para ventana pop up lo deshabilite oprque no permitia la terminacion de serieN
+/* hab				venCont += "<div data-role=\"popup\" id=\"popupBasic"+e+"\" class=\"ui-content\" style=\"max-width:280px, max-height:500px\" data-dismissible=\"false\" data-overlay-theme=\"a\"> <a href=\"#\" data-rel=\"back\" class=\"ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left\">Close</a> Hola estas en la segunda hoja </div> "; */
+
+					 if ((e==5) || (e==10)) {
+						 text += "<br> <br> "; //para salto de linea
+						 } 
+				e++; 
+				}	
+				 document.getElementById("listaEjercicios").innerHTML = text; <!-- insertarTexto-->
+				 //document.getElementById("listaVentanasPop").innerHTML = venCont;
+			}
+		</script>
+   	<script>
+    function  ejercicioTerminado(numej){
+		alert ("numej ejercicioTerminado: "+numej+"");
+		var nEjN = "";
+		nEjN = "nEj"+numej+"";		
+		alert ("Valor de nEjN: "+nEjN+"");
+		document.getElementById(""+nEjN+"").src = "img/catalogoRutinas/icon_ejacabado.png"; //nEj4.src = "img/catalogoRutinas/icon_ejacabado.png"; BORRARLO
+		}
+   	</script>   
+
+	<script>
+	function mostrarSeriesF(numej){
+		alert ("Numej de mostrarSerie: "+numej+"");
+		var i=1;
+		var listaSeries = "";
+		 while (i < 6){
+		  listaSeries += "" +i+ "<input type=\"image\" value=\"serieEnProceso"+i+"\" src=\"img/catalogoRutinas/icon_ejeproceso.png\" width=\"38\" height=\"38\" id=\"serieImgN"+i+"\" onClick=\"terminarSerie("+i+","+numej+")\">  ";  // ("+i+",5)  hay que enviar el numero del ejercicio
+		  i++; 						
+		 }
+		document.getElementById("mostrarSeries"+numej+"").innerHTML = listaSeries; //mostrarSeries
+	}
+	</script> 
+	<script>
+	function descansoEntreSeries(numej){ //numej
+		//alert ("descanso del ejercicio num: "+numej+"");
+		$(function(){
+        	$('#seconds_timer'+numej+'').countdowntimer({
+				seconds : 7, 
+				timeUp : timeisUp
+          	});
+				function timeisUp() {
+					alert ("tiempo terminado");
+					//return (numej);
+        		}
+          });	
+	}		
+	</script> 
+     
+        <script>
+		function terminarSerie(n,numej){ //
+			//alert ("Serie numero: "+n+" "); //saber el numjero de serie qeu ha hecho
+			//alert ("Numej de Terminar Serie: "+numej+"");
+			  var resta = n-1; 												//alert("Valor de resta:" +resta);  serieImg = myImage
+			  numant="serieImgN"+resta;  serieant = "serieEnProceso"+resta;  	//alert("Valor de serieant"+serieant);
+			  num="serieImgN"+n; 												//alert("Valor de N: myImage" +n);
+			  var image = document.getElementById(num);
+			  		var nSeN = ""; //nSeN
+				  	nSeN = "serieImgN"+n+"";	
+				  	//alert ("numero serie realizada: "+nSeN+"");
+			  
+			 if(resta==0){ 
+			  	//var checado = document.getElementById(num).value;  alert("valor de checado"+checado); lineas no necesarias
+				 document.getElementById(""+nSeN+"").src = "img/catalogoRutinas/icon_ejacabado.png"; //serieNo
+				 	//	 image.src = "img/catalogoRutinas/icon_ejacabado.png"
+				 document.getElementById(num).value = "serieCompletada"; 	// serieEnProceso  => serieCompletada BORRRARLO 
+					descansoEntreSeries(numej); //numej
+			 
+				}
+			 	else{
+					var checanumant = document.getElementById(numant).value;	//alert ("Valor de checado anterior: "+checanumant);  // Sacando el valor anterior
+						if (checanumant != serieant) {  
+								image.src = "img/catalogoRutinas/icon_ejacabado.png"
+								document.getElementById(num).value = "serieCompletada"; // serieEnProceso  => serieCompletada
+																
+								 if (n==5){  //debe ser el valor obtenido de la base de datos puede ser: 3, 4 o 5, no más, Cambiar por var $maxSerie 
+											// borrar document.getElementById("datosEj").style.visibility= "hidden";
+											document.getElementById("seconds_timer"+numej+"").style.visibility= "hidden";
+											document.getElementById("textoBotonSeries"+numej+"").innerHTML = "Series Terminadas";
+											document.getElementById("botonSeries"+numej+"").className = "green_btn";
+												//document.getElementById("botonSeries").disabled = true; 
+											document.getElementById("mostrarSeries"+numej+"").style.visibility= "hidden";  //quitar circulos de series
+												//document.getElementById("mostrarStatus").style.visibility= "visible";  BORRARLO
+											var completado = document.getElementById("mostrarStatus"+numej+"");
+												completado.innerHTML = completado.innerHTML + "<a href=\"#\" data-rel=\"back\" data-transition=\"flow\"> <input type=\"image\" value=\"image\" src=\"img/catalogoRutinas/icon_ct_ejterminado.png\" width=\"38\" height=\"38\">  </a>  ";
+								 		  
+										  //mandar a funcion cambir color ejercicios
+										  ejercicioTerminado(numej);
+										  }else { 
+			   descansoEntreSeries(numej);
+			 
+										  return true; }
+								
+								}
+							else{ 
+							  alert("No has terminado la serie anterior! ");
+				  }
+				}
+		}
+		</script>
+        
+    </head> 
+    <body onLoad="mostrarListaEjercicios()">
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        <!-- CODIGO AGREGADO DEL ORIGINAL -->
+        <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> 
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+  <!-- De: themeroller.jquerymobile.com -->
+        <link rel="stylesheet" type="text/css" href="css/themes/verdeazulgris.min.css" />
+  		<link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/content.css" />
+  
+ <!-- Librerias de reloj -->
+    <script type="text/javascript" src="js/jquery-2.0.3.js"></script> 
+    <script type="text/javascript" src="js/jquery.countdownTimer.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.countdownTimer.css" />
+  
+  
+  
+	<style>
+    html, body { padding: 0; margin: 0; }
+    html, .ui-mobile, .ui-mobile body {
+      height: 85px;
+    }
+    .ui-mobile, .ui-mobile .ui-page {
+      min-height: 85px;
+    }
+    .ui-content{
+      padding:10px 15px 0px 15px;
+    }
+    .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+    .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+    /*
+	#ajustes:after { background-image:  url(img/menuInf/fAjustes.png); background-size: 14px 14px; }
+	#estadisticas:after { background-image:  url(img/menuInf/fEstadisticas.png);  background-size: 14px 14px; }
+    #bloques:after { background-image:  url(img/menuInf/fBloques.png); background-size: 14px 10px;  }
+	#ciclos:after { background-image:  url(img/menuInf/fCiclos.png) ;  background-size: 16px 16px; }
+	#rutinas:after { background-image:  url(img/menuInf/fRutinas.png);  background-size: 14px 14px; }
+ 	*/  
+    #login:after { background-image:  url(http://api.jquerymobile.com/resources/navbar/glyphish-icons/30-key.png);  background-size: 12px 26px; }
+	/*iconos de cuerpo*/
+	#espalda:after { background-image:  url(img/eEspalda.png);  background-size: 15px 15px; } 
+	/*Estilo para CUSTOM ICON*/
+	#difficulty-easy:after { background-image:  url(img/positions/difficulty-easy.png);  background-size: 15px 15px; } 
+	#difficulty-medium:after { background-image:  url(img/positions/difficulty-medium.png);  background-size: 15px 15px; } 
+	#difficulty-hard:after { background-image:  url(img/positions/difficulty-hard.png);  background-size: 15px 15px; } 
+  </style>     
+      
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<!-- PAGINA inicia -->
+<div data-role="page" id="inferior" >
+ <!-- **************************************************************************-->
+ <!-- **************************************************************************--> 
+  	<!-- HEADER inicia-->
+    <div data-role="header" data-theme="a" data-position="fixed" role="banner">
+    <a href="de_ejercicios.html" data-role="button" data-icon="back" data-iconpos="notext" data-transition="fade" data-rel="back"> Regresar</a>
+ 		<h1>Rutina Generales</h1> <!-- 10 caracteres -->
+    </div>
+    <!-- HEADER termina-->
+  
+<!-- **************************************************************************-->
+<!-- **************************************************************************-->  
+	<!-- CONTENIDO o MAIN inicia -->
+	<div role="content" align="center">  <!-- <div role="main" class="ui-content">  -->
+    	<p>RUTINA NOMBRE DBINFO<br><br>
+           Nivel:dbinfo <br><br>
+            <input type="image" value="image" src="img/catalogoRutinas/icon_ct_reloj.png" width="38" height="38">
+           <!--<div id="totalTiempoRutina"> 00:00</div>  Para mostrar reloj total de realizacion de rutina --> 
+        </p>	
+    	<!-- Creacion de botones de ejercicios de rutina y elementos popup -->  
+ 		<div id="listaEjercicios"> </div>
+        <!-- <div id="listaVentanasPop"> </div> -->
+        <BR>
+         <!-- Inicia El popUp para PRUEBAS--> 
+         <!-- href='index.php?loquequiero=$variable' ó onClick="variable=return" 
+         envia id, nombre_ejerciio, nombre_imagen, repsifno, -->      
+		<a href="#popupEj0" data-rel="popup" data-transition="pop"><input type="image" value="image" src="img/catalogoRutinas/icon_E1.png" width="38" height="38">P</a>
+        <!-- Termina El popUp para PRUEBAS--> 
+        <br> <br>
+        
+        
+<!-- REVISAR SIGUITENTE CODIGO NO SE SI ESTE BIEN-->
+<!-- **************************************************************************-->
+<!-- Ventana Pop-->
+<!-- class="ui-btn ui-corner-all ui-shadow ui-btn-inline" -->
+		<div data-role="popup" id="popupEj1" class="ui-content" style="max-width:280px, max-height:500px" data-dismissible="false" data-overlay-theme="a" align="center">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+				<center><img src="img/catalogoEjercicios/S1-Espalda/10-typewritter-pull-ups.jpg" width="260" height="173"></center>
+                <div id="datosEj"> Ej UNO (nombre) </div>
+                <div id="seconds_timer1"> </div>	 <!-- <span id="seconds_timer"> </span> -->
+                
+         		<button onclick="mostrarSeriesF(1)" id="botonSeries1"><div id="textoBotonSeries1">Iniciar Series</div></button> <!-- class="green_btn" -->
+                <div id="mostrarSeries1"> </div> 
+                <div id="mostrarStatus1" align="center"> </div> <br><!-- style="visibility:hidden" -->    
+        </div>
+
+<!-- **************************************************************************-->
+
+ <!-- 2 -->    
+    <div data-role="popup" id="popupEj2" class="ui-content" style="max-width:280px, max-height:500px" data-dismissible="false" data-overlay-theme="a" align="center">
+     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+     Segunda hoja <br> 
+    	<div id="datosEj"> Ej DOS (nombre) </div>
+        <div id="seconds_timer2"> </div>	 
+                
+        <button onclick="mostrarSeriesF(2)" id="botonSeries2"><div id="textoBotonSeries2">Iniciar Series</div></button> 
+        <div id="mostrarSeries2"> </div> 
+        <div id="mostrarStatus2" align="center"> </div> <br> 	     
+    </div>
+ <!-- 3 -->    
+    <div data-role="popup" id="popupEj3" class="ui-content" style="max-width:280px, max-height:500px" data-dismissible="false" data-overlay-theme="a" align="center">
+     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+    tercer hoja <br> 
+    	<div id="datosEj"> Ej TRES (nombre) </div>
+        <div id="seconds_timer3"> </div>	 
+                
+        <button onclick="mostrarSeriesF(3)" id="botonSeries3"><div id="textoBotonSeries3">Iniciar Series</div></button> 
+        <div id="mostrarSeries3"> </div> 
+        <div id="mostrarStatus3" align="center"> </div> <br>          
+   
+    </div>    
+ <!-- 4 -->    
+    <div data-role="popup" id="popupEj4" class="ui-content" style="max-width:280px, max-height:500px" data-dismissible="false" data-overlay-theme="a">
+     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+    cuart hoja <br> 
+    	<div id="datosEj"> Ej CUATRO (nombre) </div>
+        <div id="seconds_timer4"> </div>	 
+                
+        <button onclick="mostrarSeriesF(4)" id="botonSeries4"><div id="textoBotonSeries4">Iniciar Series</div></button> 
+        <div id="mostrarSeries4"> </div> 
+        <div id="mostrarStatus4" align="center"> </div> <br>          
+   
+    </div>
+ <!-- 5 -->    
+    <div data-role="popup" id="popupEj5" class="ui-content" style="max-width:280px, max-height:500px" data-dismissible="false" data-overlay-theme="a">
+     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+    cuart hoja <br> 
+    	<div id="datosEj"> Ej CINCO (nombre) </div>
+        <div id="seconds_timer5"> </div>	 
+                
+        <button onclick="mostrarSeriesF(5)" id="botonSeries5"><div id="textoBotonSeries5">Iniciar Series</div></button> 
+        <div id="mostrarSeries5"> </div> 
+        <div id="mostrarStatus5" align="center"> </div> <br>          
+   
+    </div>    
+      
+<!-- **************************************************************************-->
+        
+        
+          
+    </div>
+	<!-- CONTENIDO o MAIN termina -->
+    
+<!-- **************************************************************************-->
+<!-- **************************************************************************-->	
+    <!-- FOOTER inicia --> 
+	<div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+        <!--
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul> <li><a href="#consejos" data-icon="back" data-iconpos="left" data-transition="fade" data-rel="back">Volver a consejos</a></li> </ul>
+        </div> -->
+        
+		<div align="center">
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_ct_redes.png" width="38" height="38"></a>
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_ct_guardar.png" width="38" height="38"></a>
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_ct_terminado.png" width="38" height="38"></a>
+         <!-- FALTA BOTON DE REINICIAR / BORRAR RUTINA  -->
+        </div>        
+    </div>
+	<!-- FOOTER termina -->       
+      
+</div>
+<!-- PAGINA termina -->
+
+
+
+
+ 
+    </body>
+</html>
+
+
+<!-- POR BORRAR 
+
+<input type="image" value="image" src="img/catalogoRutinas/icon_ejeproceso.png" width="38" height="38" id="myImage5" onClick="terminado(5)"> 
+<input type="image" value="enProceso" src="img/catalogoRutinas/icon_ejeproceso.png" width="38" height="38" id="myImage5" onClick="terminado(5)"> 
+
+<!-- Colores de ejercicios 
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_E1.png" width="38" height="38"></a>
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_E2.png" width="38" height="38"></a>
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_E3.png" width="38" height="38"></a>
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_E4.png" width="38" height="38"></a>
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_E5.png" width="38" height="38"></a>
+         <a href="pruebas.html"><input type="image" value="image" src="img/catalogoRutinas/icon_E6.png" width="38" height="38"></a>
+        <p id="statusRutina">En proceso</p>  <!--  una vez completado los ejercicios se puede subir a face,
+
+
+TRABAJO ESUQEMA BORRAR
+<div data-role="popup" id="popupEj0" class="ui-content" style="max-width:280px, max-height:500px" data-dismissible="false" data-overlay-theme="a" align="center">
+<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+            
+				<center><img src="img/catalogoEjercicios/S1-Espalda/10-typewritter-pull-ups.jpg" width="260" height="173"></center> <!-- div img-- >
+                <div id="datosEj"> Ej UNO (nombre) </div>
+                <div id="seconds_timer"> </div>	 
+                
+         		<button onclick="mostrarSeriesF(1)" id="botonSeries"><div id="textoBotonSeries">Iniciar Series</div></button> 
+                <div id="mostrarSeries"> </div> 
+                <div id="mostrarStatus" align="center"> </div> <br> 
+
+</div>
+
+	seconds_timer2	 
+	<button onclick="mostrarSeriesF(2)" id="botonSeries"><div id="textoBotonSeries2">Iniciar Series</div></button> 
+ok	mostrarSeries2 
+	mostrarStatus2 	
+-->

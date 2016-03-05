@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> <!-- lang="es" xml:lang="es" -->
+ <head>
+  <title>Hello World</title>
+  <script src="js/sql.js"></script>
+  <script>
+ 
+ function load(){
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/Users/AngelZaba/Desktop/sqlite3DBTesten/datos.db', true);
+xhr.responseType = 'arraybuffer';
+
+xhr.onload = function(e) {
+  var uInt8Array = new Uint8Array(this.response);
+  var db = new SQL.Database(uInt8Array);
+  var contents = db.exec("SELECT * FROM usuarios");
+  // contents is now [{columns:['col1','col2',...], values:[[first row], [second row], ...]}]
+  console (contents);
+};
+//xhr.send();
+
+ }
+  </script>
+
+  </head>
+<body onLoad="load()">
+
+    
+   
+ 
+</body>
+</html>
+
+
+<!-- 
+BD => datos.db
+TABLA => usuarios 
+usuario AngelZaba
+edad 31
+
+
+https://www.youtube.com/watch?v=DZSZIfhzc3A
+
+https://github.com/kripken/sql.js
+-->
